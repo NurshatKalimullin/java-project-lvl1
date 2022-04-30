@@ -13,27 +13,22 @@ public class Calculator {
         int winsCounter = 0;
         System.out.println("What is the result of the expression?");
         for (int i = 0; i < 3; i++) {
-            Random random = new Random();
-            int randomNumber1 = random.nextInt(100);
-            int randomNumber2 = random.nextInt(100);
-            int randNumber;
+            int randomNumber1 = Engine.returnNumber(0, 100);
+            int randomNumber2 = Engine.returnNumber(0, 100);
+            int randomGameOption = Engine.returnNumber(0, 3);
             int result = 0;
-            randNumber = random.nextInt(3);
-            while (randNumber == 0){
-                randNumber = random.nextInt(3);
-            }
-            switch(randNumber) {
+            switch(randomGameOption) {
                 case 1:
                     System.out.println("Question: " + randomNumber1 + " * " + randomNumber2);
-                    result = multiply(randomNumber1, randomNumber2);
+                    result = Engine.multiply(randomNumber1, randomNumber2);
                     break;
                 case 2:
                     System.out.println("Question: " + randomNumber1 + " - " + randomNumber2);
-                    result = subtract(randomNumber1, randomNumber2);
+                    result = Engine.subtract(randomNumber1, randomNumber2);
                     break;
                 case 3:
                     System.out.println("Question: " + randomNumber1 + " + " + randomNumber2);
-                    result = add(randomNumber1, randomNumber2);
+                    result = Engine.add(randomNumber1, randomNumber2);
             }
             String answer = sc.nextLine();
             System.out.println("Your answer: " + answer);
@@ -48,15 +43,4 @@ public class Calculator {
 
     }
 
-    private static int multiply(int num1, int num2) {
-        return num1 * num2;
-    }
-
-    private static int subtract(int num1, int num2) {
-        return num1 - num2;
-    }
-
-    private static int add(int num1, int num2) {
-        return num1 + num2;
-    }
 }

@@ -12,8 +12,7 @@ public class Even {
         int winsCounter = 0;
             System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             for (int i = 0; i < 3; i++) {
-            Random random = new Random();
-            int randomNumber = random.nextInt(1000);
+            int randomNumber = Engine.returnNumber(0, 1000);
             String result = "yes";
             if (randomNumber % 2 == 1) {
                 result = "no";
