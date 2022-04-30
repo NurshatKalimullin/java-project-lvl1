@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,22 +14,19 @@ public class Even {
             for (int i = 0; i < 3; i++) {
             Random random = new Random();
             int randomNumber = random.nextInt(1000);
-            String even = "yes";
+            String result = "yes";
             if (randomNumber % 2 == 1) {
-                even = "no";
+                result = "no";
             }
             System.out.println("Question: " + randomNumber);
-            String answer = sc.nextLine();
+            String answer  = sc.nextLine();
             System.out.println("Your answer: " + answer);
-            if (!answer.equals(even)) {
-                System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!", answer, even, Cli.gamerName));
+            if (!answer.equals(result)) {
+                Engine.printGameOverLine(answer, result);
                 break;
             }
             winsCounter = winsCounter + 1;
-            System.out.println("Correct!");
-            if (winsCounter == 3) {
-                System.out.println(String.format("Congratulations, %s!", Cli.gamerName));
-            }
+            Engine.printSuccessLines(winsCounter);
         }
     }
 }
