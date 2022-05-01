@@ -24,6 +24,10 @@ repositories {
     mavenCentral()
 }
 
+compileJava {
+    options.release = 11
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
