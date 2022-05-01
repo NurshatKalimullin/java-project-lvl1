@@ -24,10 +24,6 @@ repositories {
     mavenCentral()
 }
 
-compileJava {
-    options.release = 11
-}
-
 application {
     mainClass = 'hexlet.code.App'
 }
@@ -49,6 +45,10 @@ jacocoTestReport {
     reports {
         xml.required = true
     }
+}
+
+checkstyle {
+    toolVersion '9.2.1'
 }
 
 run {
