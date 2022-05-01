@@ -32,7 +32,7 @@ public class Engine {
             maxNumber = randomNumber1;
         }
         int result = 0;
-        for (int i = minNumber - 1; i > 0; i--) {
+        for (int i = minNumber; i > 0; i--) {
             if (minNumber % i == 0) {
                 if (maxNumber % i == 0) {
                     result = i;

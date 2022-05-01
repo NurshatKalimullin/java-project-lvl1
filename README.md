@@ -7,4 +7,20 @@
 
 
 ### Even Game screenshot
-![Alt text](/evenGameScreenshot.png?raw=true "Even Game screenshot")
+![Alt text](/screenshots/evenGameScreenshot.png?raw=true "Even Game screenshot")
+
+
+### Calc Game screenshot
+![Alt text](/screenshots/calcGameScreenshot.png?raw=true "Even Game screenshot")
+
+
+### GCD Game screenshot
+![Alt text](/screenshots/gcdGameScreenshot.png?raw=true "Even Game screenshot")
+
+
+### Progression Game screenshot
+![Alt text](/screenshots/progressionGameScreenshot.png?raw=true "Even Game screenshot")
+
+
+### Prime Game screenshot
+![Alt text](/screenshots/primeGameScreenshot.png?raw=true "Even Game screenshot")
