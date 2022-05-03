@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Calculator {
@@ -12,12 +11,16 @@ public class Calculator {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("What is the result of the expression?");
-        for (int i = 0; i < 3; i++) {
-            int randomNumber1 = Engine.returnNumber(0, 100);
-            int randomNumber2 = Engine.returnNumber(0, 100);
-            int randomGameOption = Engine.returnNumber(0, 3);
+        int tries = 3;
+        for (int i = 0; i < tries; i++) {
+            int min = 0;
+            int max = 100;
+            int randomNumber1 = Engine.returnNumber(min, max);
+            int randomNumber2 = Engine.returnNumber(min, max);
+            max = 3;
+            int randomGameOption = Engine.returnNumber(min, max);
             int result = 0;
-            switch(randomGameOption) {
+            switch (randomGameOption) {
                 case 1:
                     System.out.println("Question: " + randomNumber1 + " * " + randomNumber2);
                     result = Engine.multiply(randomNumber1, randomNumber2);
@@ -29,6 +32,8 @@ public class Calculator {
                 case 3:
                     System.out.println("Question: " + randomNumber1 + " + " + randomNumber2);
                     result = Engine.add(randomNumber1, randomNumber2);
+                default:
+                    System.out.println("There is not default. You stupid checkstyle!");
             }
             String answer = sc.nextLine();
             System.out.println("Your answer: " + answer);
