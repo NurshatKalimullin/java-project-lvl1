@@ -25,3 +25,9 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+
+	- name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+    
+    	- name: Execute Gradle build
+        run: ./gradlew build
