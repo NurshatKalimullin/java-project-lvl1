@@ -10,9 +10,11 @@ public class Even {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        int tries = 3;
-        for (int i = 0; i < tries; i++) {
-            int randomNumber = Engine.returnNumber(0, 1000);
+        String tries = "3";
+        for (int i = 0; i < Integer.parseInt(tries); i++) {
+            String min = "0";
+            String max = "1000";
+            int randomNumber = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             String result = "yes";
             if (randomNumber % 2 == 1) {
                 result = "no";

@@ -11,14 +11,14 @@ public class Progression {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("What number is missing in the progression?");
-        int maxTries = 3;
-        for (int i = 0; i < maxTries; i++) {
-            int min = 5;
-            int max = 10;
-            int digitsInProgression = Engine.returnNumber(min, max);
-            min = 0;
+        String maxTries = "3";
+        for (int i = 0; i < Integer.parseInt(maxTries); i++) {
+            String min = "5";
+            String max = "10";
+            int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            min = "0";
             int[] progression = generateProgression(digitsInProgression);
-            int numberForMasking = Engine.returnNumber(min, digitsInProgression);
+            int numberForMasking = Engine.returnNumber(Integer.parseInt(min), digitsInProgression);
             String[] stringProgression = convertIntArrayToStringArray(progression);
             String maskedDigit = stringProgression[numberForMasking];
             stringProgression[numberForMasking] = "..";

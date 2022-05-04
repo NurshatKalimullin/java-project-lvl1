@@ -11,14 +11,14 @@ public class Calculator {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("What is the result of the expression?");
-        int tries = 3;
-        for (int i = 0; i < tries; i++) {
-            int min = 0;
-            int max = 100;
-            int randomNumber1 = Engine.returnNumber(min, max);
-            int randomNumber2 = Engine.returnNumber(min, max);
-            max = 3;
-            int randomGameOption = Engine.returnNumber(min, max);
+        String tries = "3";
+        for (int i = 0; i < Integer.parseInt(tries); i++) {
+            String min = "0";
+            String max = "100";
+            int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            max = "3";
+            int randomGameOption = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             int result = 0;
             switch (randomGameOption) {
                 case 1:

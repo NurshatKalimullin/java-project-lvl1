@@ -11,8 +11,8 @@ public class Engine {
 
     public static void printSuccessLines(int winsCounter) {
         System.out.println("Correct!");
-        int maxNumberOfWins = 3;
-        if (winsCounter == maxNumberOfWins) {
+        String  maxNumberOfWins = "3";
+        if (winsCounter == Integer.parseInt(maxNumberOfWins)) {
             System.out.println(String.format("Congratulations, %s!", Cli.getGamer()));
         }
     }
