@@ -9,8 +9,11 @@
 name: hexlet-check
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
 
 jobs:
   build:
