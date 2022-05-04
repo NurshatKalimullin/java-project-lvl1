@@ -2,15 +2,18 @@ package hexlet.code;
 
 public class Gamer {
 
-    private String gamerName;
+        private String name;
 
-    public String getGamerName() {
-        return gamerName;
-    }
 
-    public Gamer withGamerName(String gamerName) {
-        this.gamerName = gamerName;
-        return this;
-    }
+        public Gamer(String name) {
+            this.name = name;
+        }
 
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
 }
