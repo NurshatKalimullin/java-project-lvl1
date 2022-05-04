@@ -9,7 +9,7 @@ public class Gamer {
     }
 
     public Gamer withGamerName(String gamerName) {
-        gamerName = gamerName;
+        this.gamerName = gamerName;
         return this;
     }
 
