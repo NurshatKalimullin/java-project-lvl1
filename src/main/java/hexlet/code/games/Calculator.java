@@ -18,7 +18,8 @@ public class Calculator {
             int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             max = "3";
-            String  randomGameOption = Integer.toString(Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max)));
+            String  randomGameOption = Integer.toString(Engine.returnNumber(Integer.parseInt(min),
+                    Integer.parseInt(max)));
             int result = 0;
             switch (randomGameOption) {
                 case "1":
