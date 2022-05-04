@@ -11,8 +11,8 @@ public class Progression {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("What number is missing in the progression?");
-        String maxTries = "3";
-        for (int i = 0; i < Integer.parseInt(maxTries); i++) {
+        final int maxTries = 3;
+        for (int i = 0; i < maxTries; i++) {
             String min = "5";
             String max = "10";
             int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));

@@ -10,7 +10,7 @@ public class GCD {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("Find the greatest common divisor of given numbers.");
-        int maxTries = 3;
+        final int maxTries = 3;
         for (int i = 0; i < maxTries; i++) {
             String min = "1";
             String max = "100";
