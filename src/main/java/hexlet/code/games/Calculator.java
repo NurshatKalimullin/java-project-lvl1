@@ -34,7 +34,7 @@ public class Calculator {
                     System.out.println("Question: " + randomNumber1 + " + " + randomNumber2);
                     result = Engine.add(randomNumber1, randomNumber2);
                 default:
-                    System.out.println("There is not default. You stupid checkstyle!");
+                    System.out.println("There is not default. Stupid checkstyle!");
             }
             String answer = sc.nextLine();
             System.out.println("Your answer: " + answer);
