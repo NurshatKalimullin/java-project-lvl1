@@ -18,18 +18,18 @@ public class Calculator {
             int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             max = "3";
-            final int randomGameOption = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            String  randomGameOption = Integer.toString(Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max)));
             int result = 0;
             switch (randomGameOption) {
-                case 1:
+                case "1":
                     System.out.println("Question: " + randomNumber1 + " * " + randomNumber2);
                     result = Engine.multiply(randomNumber1, randomNumber2);
                     break;
-                case 2:
+                case "2":
                     System.out.println("Question: " + randomNumber1 + " - " + randomNumber2);
                     result = Engine.subtract(randomNumber1, randomNumber2);
                     break;
-                case 3:
+                case "3":
                     System.out.println("Question: " + randomNumber1 + " + " + randomNumber2);
                     result = Engine.add(randomNumber1, randomNumber2);
                 default:

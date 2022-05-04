@@ -44,8 +44,8 @@ public class Progression {
 
     private static int[] generateProgression(int digitsInProgression) {
         int[] progression = new int[digitsInProgression];
-        int min = 0;
-        int max = 10;
+        final int min = 0;
+        final int max = 10;
         progression[0] = Engine.returnNumber(min, max);
         int step = Engine.returnNumber(min, max);
         for (int i = 1; i < digitsInProgression; i++) {
