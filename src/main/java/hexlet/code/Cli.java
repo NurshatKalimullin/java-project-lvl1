@@ -4,14 +4,18 @@ import java.util.Scanner;
 
 public class Cli {
 
-    protected static Gamer gamer;
+    private static String gamerName;
 
     public static void cli() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner sc = new Scanner(System.in);
-        gamer = new Gamer(sc.nextLine());
-        System.out.println(String.format("Hello, %s!", gamer.getName()));
+        gamerName = sc.nextLine();
+        System.out.println(String.format("Hello, %s!", gamerName));
+    }
+
+    public static String getGamer() {
+        return gamerName;
     }
 
 }
