@@ -10,9 +10,12 @@ public class GCD {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("Find the greatest common divisor of given numbers.");
-        for (int i = 0; i < 3; i++) {
-            int randomNumber1 = Engine.returnNumber(1, 100);;
-            int randomNumber2 = Engine.returnNumber(1, 100);
+        int maxTries = 3;
+        for (int i = 0; i < maxTries; i++) {
+            int min = 1;
+            int max = 100;
+            int randomNumber1 = Engine.returnNumber(min, max);
+            int randomNumber2 = Engine.returnNumber(min, max);
             int result = Engine.findGreatestDivisor(randomNumber1, randomNumber2);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
             String answer  = sc.nextLine();

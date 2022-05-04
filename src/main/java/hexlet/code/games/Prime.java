@@ -10,8 +10,11 @@ public class Prime {
         Scanner sc = new Scanner(System.in);
         int winsCounter = 0;
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        for (int i = 0; i < 3; i++) {
-            int randomNumber = Engine.returnNumber(0, 300);
+        int maxTries = 3;
+        for (int i = 0; i < maxTries; i++) {
+            int min = 0;
+            int max = 100;
+            int randomNumber = Engine.returnNumber(min, max);
             String result = "yes";
             if (!isPrime(randomNumber)) {
                 result = "no";
