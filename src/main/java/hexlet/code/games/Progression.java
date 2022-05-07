@@ -13,9 +13,9 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < Engine.getMaxTries(); i++) {
             String min = "7";
-            String max = "10";
+            String max = "15";
             int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            min = "0";
+            min = "5";
             int[] progression = generateProgression(digitsInProgression);
             int numberForMasking = Engine.returnNumber(Integer.parseInt(min), digitsInProgression);
             String[] stringProgression = convertIntArrayToStringArray(progression);
