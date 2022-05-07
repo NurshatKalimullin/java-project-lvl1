@@ -1,19 +1,22 @@
 package hexlet.code;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Engine {
 
-    public static void printGameOverLine(String answer, String result) {
+    private static int maxTries = 3;
+
+    public static void printGameOverLine(String answer, String result, String gamerName) {
         System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
-                answer, result, Cli.getGamer()));
+                answer, result, gamerName));
     }
 
-    public static void printSuccessLines(int winsCounter) {
+    public static void printSuccessLines(int winsCounter, String gamerName) {
         System.out.println("Correct!");
         String  maxNumberOfWins = "3";
         if (winsCounter == Integer.parseInt(maxNumberOfWins)) {
-            System.out.println(String.format("Congratulations, %s!", Cli.getGamer()));
+            System.out.println(String.format("Congratulations, %s!", gamerName));
         }
     }
 
@@ -24,25 +27,6 @@ public class Engine {
             randomNumber = random.nextInt(max);
         }
         return randomNumber;
-    }
-
-    public static int findGreatestDivisor(int randomNumber1, int randomNumber2) {
-        int minNumber = randomNumber1;
-        int maxNumber = randomNumber2;
-        if (randomNumber1 > randomNumber2) {
-            minNumber = randomNumber2;
-            maxNumber = randomNumber1;
-        }
-        int result = 0;
-        for (int i = minNumber; i > 0; i--) {
-            if (minNumber % i == 0) {
-                if (maxNumber % i == 0) {
-                    result = i;
-                    break;
-                }
-            }
-        }
-        return result;
     }
 
     public static int multiply(int num1, int num2) {
@@ -57,4 +41,37 @@ public class Engine {
         return num1 + num2;
     }
 
+    public static void printWelcome() {
+        System.out.println("Welcome to the Brain Games!");
+    }
+
+    public static void askName() {
+        System.out.println("May I have your name?");
+    }
+
+    public static String getName() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+
+    public static void printGreeting(String gamerName) {
+        System.out.println(String.format("Hello, %s!", gamerName));
+    }
+
+    public static int getMaxTries() {
+        return maxTries;
+    }
+
+    public static String getAnswer() {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+
+    public static void printAnswer(String answer) {
+        System.out.println("Your answer: " + answer);
+    }
+
+    public static void printTask(String task) {
+        System.out.println("Question: " + task);
+    }
 }

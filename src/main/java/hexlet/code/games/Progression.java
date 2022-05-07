@@ -3,16 +3,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Progression {
 
     public static void progression() {
-        Scanner sc = new Scanner(System.in);
+        Engine.printWelcome();
+        Engine.askName();
+        String gamerName = Engine.getName();
+        Engine.printGreeting(gamerName);
         int winsCounter = 0;
         System.out.println("What number is missing in the progression?");
-        final int maxTries = 3;
-        for (int i = 0; i < maxTries; i++) {
+        for (int i = 0; i < Engine.getMaxTries(); i++) {
             String min = "5";
             String max = "10";
             int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
@@ -22,15 +23,15 @@ public class Progression {
             String[] stringProgression = convertIntArrayToStringArray(progression);
             String maskedDigit = stringProgression[numberForMasking];
             stringProgression[numberForMasking] = "..";
-            System.out.println("Question: " + Arrays.toString(stringProgression));
-            String answer = sc.nextLine();
-            System.out.println("Your answer: " + answer);
+            Engine.printTask(Arrays.toString(stringProgression));
+            String answer = Engine.getAnswer();
+            Engine.printAnswer(answer);
             if (!answer.equals(maskedDigit)) {
-                Engine.printGameOverLine(answer, maskedDigit);
+                Engine.printGameOverLine(answer, maskedDigit, gamerName);
                 break;
             }
             winsCounter = winsCounter + 1;
-            Engine.printSuccessLines(winsCounter);
+            Engine.printSuccessLines(winsCounter, gamerName);
         }
     }
 

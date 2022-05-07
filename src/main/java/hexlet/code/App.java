@@ -27,23 +27,18 @@ public class App {
                 Cli.cli();
                 break;
             case "2":
-                Cli.cli();
                 Even.even();
                 break;
             case "3":
-                Cli.cli();
                 Calculator.calc();
                 break;
             case "4":
-                Cli.cli();
                 GCD.gcd();
                 break;
             case "5":
-                Cli.cli();
                 Progression.progression();
                 break;
             case "6":
-                Cli.cli();
                 Prime.prime();
                 break;
             default:
