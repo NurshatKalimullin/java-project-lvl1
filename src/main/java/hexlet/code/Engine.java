@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static int maxTries = 3;
+    private static String maxTries = "3";
 
     public static void printGameOverLine(String answer, String result, String gamerName) {
         System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
@@ -59,7 +59,7 @@ public class Engine {
     }
 
     public static int getMaxTries() {
-        return maxTries;
+        return Integer.parseInt(maxTries);
     }
 
     public static String getAnswer() {
