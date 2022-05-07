@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
-
 public class Progression {
 
     public static void progression() {
@@ -14,7 +12,7 @@ public class Progression {
         int winsCounter = 0;
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < Engine.getMaxTries(); i++) {
-            String min = "5";
+            String min = "7";
             String max = "10";
             int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             min = "0";
