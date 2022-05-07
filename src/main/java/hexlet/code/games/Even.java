@@ -14,7 +14,8 @@ public class Even {
         for (int i = 0; i < Engine.getMaxTries(); i++) {
             String min = "0";
             String max = "1000";
-            int randomNumber = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber = Engine.returnNumber(Integer.parseInt(min),
+                    Integer.parseInt(max));
             String result = "yes";
             if (randomNumber % 2 == 1) {
                 result = "no";
