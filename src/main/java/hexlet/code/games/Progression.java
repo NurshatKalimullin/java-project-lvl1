@@ -22,8 +22,8 @@ public class Progression {
             int numberForMasking = Engine.returnNumber(Integer.parseInt(min), digitsInProgression);
             String[] stringProgression = convertIntArrayToStringArray(progression);
             String maskedDigit = stringProgression[numberForMasking];
-            stringProgression[numberForMasking] = "..";
-            Engine.printTask(Arrays.toString(stringProgression));
+            String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
+            Engine.printTask(progressionForPrint);
             String answer = Engine.getAnswer();
             Engine.printAnswer(answer);
             if (!answer.equals(maskedDigit)) {
@@ -33,6 +33,15 @@ public class Progression {
             winsCounter = winsCounter + 1;
             Engine.printSuccessLines(winsCounter, gamerName);
         }
+    }
+
+    private static String getProgressionForPrint(String[] progression, int numberForMasking) {
+        progression[numberForMasking] = "..";
+        String result = "";
+        for (String item : progression) {
+            result = result + item + ", ";
+        }
+        return result.substring(0, result.length() - 2);
     }
 
     private static String[] convertIntArrayToStringArray(int[] progression) {
