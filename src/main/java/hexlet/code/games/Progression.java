@@ -12,12 +12,10 @@ public class Progression {
         int winsCounter = 0;
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < Engine.getMaxTries(); i++) {
-            String min = "5";
-            String max = "15";
-            int digitsInProgression = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            min = "0";
-            int[] progression = generateProgression(digitsInProgression);
-            int numberForMasking = Engine.returnNumber(Integer.parseInt(min), digitsInProgression);
+            String digitsInProgression = "7";
+            String min = "0";
+            int[] progression = generateProgression(Integer.parseInt(digitsInProgression));
+            int numberForMasking = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(digitsInProgression));
             String[] stringProgression = convertIntArrayToStringArray(progression);
             String maskedDigit = stringProgression[numberForMasking];
             String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
@@ -39,7 +37,7 @@ public class Progression {
         for (String item : progression) {
             result = result + item + " ";
         }
-        return result.substring(0, result.length() - 2);
+        return result.substring(0, result.length() - 1);
     }
 
     private static String[] convertIntArrayToStringArray(int[] progression) {
