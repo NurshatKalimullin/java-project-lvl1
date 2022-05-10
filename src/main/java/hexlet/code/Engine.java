@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final String maxTries = "3";
+    private static final String MAX_TRIES = "3";
 
 
     public static void playGame(String gameOption) {
@@ -21,7 +21,7 @@ public class Engine {
         printGreeting(gamerName);
         printRules(gameOption);
         int winsCounter = 0;
-        for (int i = 0; i < Integer.parseInt(maxTries); i++) {
+        for (int i = 0; i < Integer.parseInt(MAX_TRIES); i++) {
             String[] questionAndResult = getQuestionAndResult(gameOption);
             String question = questionAndResult[0];
             String result = questionAndResult[1];
@@ -115,7 +115,7 @@ public class Engine {
     }
 
 
-    private static void printRules (String gameOption) {
+    private static void printRules(String gameOption) {
         switch (gameOption) {
             case "2":
                 Even.getRules();
