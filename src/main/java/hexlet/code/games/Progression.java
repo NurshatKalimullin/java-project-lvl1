@@ -45,6 +45,6 @@ public class Progression {
         String[] stringProgression = convertIntArrayToStringArray(progression);
         String maskedDigit = stringProgression[numberForMasking];
         String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
-        return new String[]{progressionForPrint,maskedDigit};
+        return new String[]{progressionForPrint, maskedDigit};
     }
 }

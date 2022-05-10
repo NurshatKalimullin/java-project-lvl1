@@ -9,7 +9,7 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 
-    public static String [] generateQuestionAndResult() {
+    public static String[] generateQuestionAndResult() {
         String min = "0";
         String max = "1000";
         String randomNumber = Integer.toString(Engine.returnNumber(Integer.parseInt(min),

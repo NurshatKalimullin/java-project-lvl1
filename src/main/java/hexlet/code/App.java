@@ -18,8 +18,8 @@ public class App {
         System.out.println("Your choice: " + gameOption);
         if (gameOption.equals("1")) {
             Cli.cli();
-        } else if (gameOption.equals("2") || gameOption.equals("3") || gameOption.equals("4") ||
-                gameOption.equals("5") || gameOption.equals("6")) {
+        } else if (gameOption.equals("2") || gameOption.equals("3") || gameOption.equals("4")
+                || gameOption.equals("5") || gameOption.equals("6")) {
             Engine.playGame(gameOption);
         } else {
             System.out.println("Sorry! Wrong answer. Please, try again.");

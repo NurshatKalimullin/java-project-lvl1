@@ -28,6 +28,6 @@ public class Prime {
         if (!isPrime(randomNumber)) {
             result = "no";
         }
-        return new String[]{Integer.toString(randomNumber),result};
+        return new String[]{Integer.toString(randomNumber), result};
     }
 }

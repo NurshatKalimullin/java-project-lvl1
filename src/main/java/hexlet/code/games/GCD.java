@@ -34,6 +34,6 @@ public class GCD {
         int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
         int result = findGreatestDivisor(randomNumber1, randomNumber2);
         String question = randomNumber1 + " " + randomNumber2;
-        return new String[]{question,Integer.toString(result)};
+        return new String[]{question, Integer.toString(result)};
     }
 }

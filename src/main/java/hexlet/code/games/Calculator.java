@@ -12,7 +12,9 @@ public class Calculator {
         return num1 - num2;
     }
 
-    private static int add(int num1, int num2) { return num1 + num2; }
+    private static int add(int num1, int num2) {
+        return num1 + num2;
+    }
 
     public static void getRules() {
         System.out.println("What is the result of the expression?");

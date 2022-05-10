@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -18,7 +22,7 @@ public class Engine {
         printRules(gameOption);
         int winsCounter = 0;
         for (int i = 0; i < Integer.parseInt(maxTries); i++) {
-            String[] questionAndResult= getQuestionAndResult(gameOption);
+            String[] questionAndResult = getQuestionAndResult(gameOption);
             String question = questionAndResult[0];
             String result = questionAndResult[1];
             printTask(question);
@@ -87,7 +91,7 @@ public class Engine {
     }
 
     private static String[] getQuestionAndResult(String gameOption) {
-        String [] questionAndResult = {""};
+        String[] questionAndResult = {""};
         switch (gameOption) {
             case "2":
                 questionAndResult = Even.generateQuestionAndResult();
