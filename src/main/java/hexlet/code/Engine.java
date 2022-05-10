@@ -70,7 +70,8 @@ public class Engine {
 
     private static String getName() {
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        String name = sc.next();
+        return name;
     }
 
     private static void printGreeting(String gamerName) {
@@ -79,7 +80,8 @@ public class Engine {
 
     private static String getAnswer() {
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        String answer = sc.next();
+        return answer;
     }
 
     private static void printAnswer(String answer) {
