@@ -1,11 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
 import java.util.Scanner;
 
 public class App {
@@ -22,29 +16,15 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String gameOption = sc.nextLine();
         System.out.println("Your choice: " + gameOption);
-        switch (gameOption) {
-            case "1":
-                Cli.cli();
-                break;
-            case "2":
-                Even.even();
-                break;
-            case "3":
-                Calculator.calc();
-                break;
-            case "4":
-                GCD.gcd();
-                break;
-            case "5":
-                Progression.progression();
-                break;
-            case "6":
-                Prime.prime();
-                break;
-            default:
-                System.out.println("Sorry! Wrong answer. Please, try again.");
+        if (gameOption.equals("1")) {
+            Cli.cli();
+        } else if (gameOption.equals("2") || gameOption.equals("3") || gameOption.equals("4") ||
+                gameOption.equals("5") || gameOption.equals("6")) {
+            Engine.playGame(gameOption);
+        } else {
+            System.out.println("Sorry! Wrong answer. Please, try again.");
         }
-
     }
+
 
 }

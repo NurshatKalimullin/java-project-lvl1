@@ -1,18 +1,45 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
 
-    private static String maxTries = "3";
+    private static final String maxTries = "3";
 
-    public static void printGameOverLine(String answer, String result, String gamerName) {
+
+    public static void playGame(String gameOption) {
+        printWelcome();
+        askName();
+        String gamerName = Engine.getName();
+        printGreeting(gamerName);
+        printRules(gameOption);
+        int winsCounter = 0;
+        for (int i = 0; i < Integer.parseInt(maxTries); i++) {
+            String[] questionAndResult= getQuestionAndResult(gameOption);
+            String question = questionAndResult[0];
+            String result = questionAndResult[1];
+            printTask(question);
+            String answer = Engine.getAnswer();
+            printAnswer(answer);
+            if (!answer.equals(result)) {
+                printGameOverLine(answer, result, gamerName);
+                break;
+            }
+            winsCounter = winsCounter + 1;
+            printSuccessLines(winsCounter, gamerName);
+        }
+    }
+
+
+    private static void printGameOverLine(String answer, String result, String gamerName) {
         System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                 answer, result, gamerName));
     }
 
-    public static void printSuccessLines(int winsCounter, String gamerName) {
+    private static void printSuccessLines(int winsCounter, String gamerName) {
         System.out.println("Correct!");
         String  maxNumberOfWins = "3";
         if (winsCounter == Integer.parseInt(maxNumberOfWins)) {
@@ -29,49 +56,80 @@ public class Engine {
         return randomNumber;
     }
 
-    public static int multiply(int num1, int num2) {
-        return num1 * num2;
-    }
-
-    public static int subtract(int num1, int num2) {
-        return num1 - num2;
-    }
-
-    public static int add(int num1, int num2) {
-        return num1 + num2;
-    }
-
-    public static void printWelcome() {
+    private static void printWelcome() {
         System.out.println("Welcome to the Brain Games!");
     }
 
-    public static void askName() {
+    private static void askName() {
         System.out.println("May I have your name?");
     }
 
-    public static String getName() {
+    private static String getName() {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
 
-    public static void printGreeting(String gamerName) {
+    private static void printGreeting(String gamerName) {
         System.out.println(String.format("Hello, %s!", gamerName));
     }
 
-    public static int getMaxTries() {
-        return Integer.parseInt(maxTries);
-    }
-
-    public static String getAnswer() {
+    private static String getAnswer() {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
 
-    public static void printAnswer(String answer) {
+    private static void printAnswer(String answer) {
         System.out.println("Your answer: " + answer);
     }
 
-    public static void printTask(String task) {
+    private static void printTask(String task) {
         System.out.println("Question: " + task);
+    }
+
+    private static String[] getQuestionAndResult(String gameOption) {
+        String [] questionAndResult = {""};
+        switch (gameOption) {
+            case "2":
+                questionAndResult = Even.generateQuestionAndResult();
+                break;
+            case "3":
+                questionAndResult = Calculator.generateQuestionAndResult();
+                break;
+            case "4":
+                questionAndResult = GCD.generateQuestionAndResult();
+                break;
+            case "5":
+                questionAndResult = Progression.generateQuestionAndResult();
+                break;
+            case "6":
+                questionAndResult = Prime.generateQuestionAndResult();
+                break;
+            default:
+                throw new Error(String.format("Unknown order state: %s!", gameOption));
+        }
+        return questionAndResult;
+    }
+
+
+    private static void printRules (String gameOption) {
+        switch (gameOption) {
+            case "2":
+                Even.getRules();
+                break;
+            case "3":
+                Calculator.getRules();
+                break;
+            case "4":
+                GCD.getRules();
+                break;
+            case "5":
+                Progression.getRules();
+                break;
+            case "6":
+                Prime.getRules();
+                break;
+            default:
+                throw new Error(String.format("Unknown order state: %s!", gameOption));
+        }
     }
 }

@@ -4,33 +4,6 @@ import hexlet.code.Engine;
 
 public class Progression {
 
-    public static void progression() {
-        Engine.printWelcome();
-        Engine.askName();
-        String gamerName = Engine.getName();
-        Engine.printGreeting(gamerName);
-        int winsCounter = 0;
-        System.out.println("What number is missing in the progression?");
-        for (int i = 0; i < Engine.getMaxTries(); i++) {
-            String digitsInProgression = "7";
-            String min = "0";
-            int[] progression = generateProgression(Integer.parseInt(digitsInProgression));
-            int numberForMasking = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(digitsInProgression));
-            String[] stringProgression = convertIntArrayToStringArray(progression);
-            String maskedDigit = stringProgression[numberForMasking];
-            String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
-            Engine.printTask(progressionForPrint);
-            String answer = Engine.getAnswer();
-            Engine.printAnswer(answer);
-            if (!answer.equals(maskedDigit)) {
-                Engine.printGameOverLine(answer, maskedDigit, gamerName);
-                break;
-            }
-            winsCounter = winsCounter + 1;
-            Engine.printSuccessLines(winsCounter, gamerName);
-        }
-    }
-
     private static String getProgressionForPrint(String[] progression, int numberForMasking) {
         progression[numberForMasking] = "..";
         String result = "";
@@ -58,5 +31,20 @@ public class Progression {
             progression[i] = progression[i - 1] + step;
         }
         return progression;
+    }
+
+    public static void getRules() {
+        System.out.println("What number is missing in the progression?");
+    }
+
+    public static String[] generateQuestionAndResult() {
+        String digitsInProgression = "7";
+        String min = "0";
+        int[] progression = generateProgression(Integer.parseInt(digitsInProgression));
+        int numberForMasking = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(digitsInProgression));
+        String[] stringProgression = convertIntArrayToStringArray(progression);
+        String maskedDigit = stringProgression[numberForMasking];
+        String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
+        return new String[]{progressionForPrint,maskedDigit};
     }
 }
