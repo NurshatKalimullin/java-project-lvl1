@@ -13,7 +13,7 @@ public class Engine {
 
     private static final String MAX_TRIES = "3";
 
-    public static void playGame(String gameOption, String rules) {
+    public static void playGame(String game, String rules) {
         printWelcome();
         askName();
         String gamerName = Engine.getName();
@@ -21,7 +21,7 @@ public class Engine {
         printRules(rules);
         int winsCounter = 0;
         for (int i = 0; i < Integer.parseInt(MAX_TRIES); i++) {
-            String[] questionAndResult = getQuestionAndResult(gameOption);
+            String[] questionAndResult = getQuestionAndResult(game);
             String question = questionAndResult[0];
             String result = questionAndResult[1];
             printTask(question);
@@ -91,9 +91,9 @@ public class Engine {
         System.out.println("Question: " + task);
     }
 
-    private static String[] getQuestionAndResult(String gameOption) {
+    private static String[] getQuestionAndResult(String game) {
         String[] questionAndResult = {""};
-        switch (gameOption) {
+        switch (game) {
             case "Even":
                 questionAndResult = Even.generateQuestionAndResult();
                 break;
@@ -110,7 +110,7 @@ public class Engine {
                 questionAndResult = Prime.generateQuestionAndResult();
                 break;
             default:
-                throw new Error(String.format("Unknown order state: %s!", gameOption));
+                throw new Error(String.format("Unknown order state: %s!", game));
         }
         return questionAndResult;
     }
