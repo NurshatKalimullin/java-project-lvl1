@@ -4,6 +4,12 @@ import hexlet.code.Engine;
 
 public class Calculator {
 
+    public static void calc() {
+        String game = "Calculator";
+        String rules = "What is the result of the expression?";
+        Engine.playGame(game, rules);
+    }
+
     private static int multiply(int num1, int num2) {
         return num1 * num2;
     }
@@ -48,4 +54,5 @@ public class Calculator {
         }
         return new String[]{question, Integer.toString(result)};
     }
+
 }

@@ -4,6 +4,11 @@ import hexlet.code.Engine;
 
 public class Even {
 
+    public static void even() {
+        String game = "Even";
+        String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.playGame(game, rules);
+    }
 
     public static void getRules() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
@@ -20,4 +25,5 @@ public class Even {
         }
         return new String[]{randomNumber, result};
     }
+
 }

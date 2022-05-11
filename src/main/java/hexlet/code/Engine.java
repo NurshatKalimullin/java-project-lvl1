@@ -14,12 +14,12 @@ public class Engine {
     private static final String MAX_TRIES = "3";
 
 
-    public static void playGame(String gameOption) {
+    public static void playGame(String gameOption, String rules) {
         printWelcome();
         askName();
         String gamerName = Engine.getName();
         printGreeting(gamerName);
-        printRules(gameOption);
+        printRules(rules);
         int winsCounter = 0;
         for (int i = 0; i < Integer.parseInt(MAX_TRIES); i++) {
             String[] questionAndResult = getQuestionAndResult(gameOption);
@@ -95,19 +95,19 @@ public class Engine {
     private static String[] getQuestionAndResult(String gameOption) {
         String[] questionAndResult = {""};
         switch (gameOption) {
-            case "2":
+            case "Even":
                 questionAndResult = Even.generateQuestionAndResult();
                 break;
-            case "3":
+            case "Calculator":
                 questionAndResult = Calculator.generateQuestionAndResult();
                 break;
-            case "4":
+            case "GCD":
                 questionAndResult = GCD.generateQuestionAndResult();
                 break;
-            case "5":
+            case "Progression":
                 questionAndResult = Progression.generateQuestionAndResult();
                 break;
-            case "6":
+            case "Prime":
                 questionAndResult = Prime.generateQuestionAndResult();
                 break;
             default:
@@ -117,25 +117,7 @@ public class Engine {
     }
 
 
-    private static void printRules(String gameOption) {
-        switch (gameOption) {
-            case "2":
-                Even.getRules();
-                break;
-            case "3":
-                Calculator.getRules();
-                break;
-            case "4":
-                GCD.getRules();
-                break;
-            case "5":
-                Progression.getRules();
-                break;
-            case "6":
-                Prime.getRules();
-                break;
-            default:
-                throw new Error(String.format("Unknown order state: %s!", gameOption));
-        }
+    private static void printRules(String rules) {
+        System.out.println(rules);
     }
 }

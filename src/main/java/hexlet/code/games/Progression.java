@@ -4,6 +4,12 @@ import hexlet.code.Engine;
 
 public class Progression {
 
+    public static void progression() {
+        String game = "Progression";
+        String rules = "What number is missing in the progression?";
+        Engine.playGame(game, rules);
+    }
+
     private static String getProgressionForPrint(String[] progression, int numberForMasking) {
         progression[numberForMasking] = "..";
         String result = "";
@@ -47,4 +53,5 @@ public class Progression {
         String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
         return new String[]{progressionForPrint, maskedDigit};
     }
+
 }

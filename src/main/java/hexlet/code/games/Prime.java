@@ -4,6 +4,12 @@ import hexlet.code.Engine;
 
 public class Prime {
 
+    public static void prime() {
+        String game = "Prime";
+        String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.playGame(game, rules);
+    }
+
     private static boolean isPrime(int number) {
         if (number == 1) {
             return false;
@@ -30,4 +36,5 @@ public class Prime {
         }
         return new String[]{Integer.toString(randomNumber), result};
     }
+
 }

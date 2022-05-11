@@ -4,6 +4,12 @@ import hexlet.code.Engine;
 
 public class GCD {
 
+    public static void gcd() {
+        String game = "GCD";
+        String rules = "Find the greatest common divisor of given numbers.";
+        Engine.playGame(game, rules);
+    }
+
     private static int findGreatestDivisor(int randomNumber1, int randomNumber2) {
         int minNumber = randomNumber1;
         int maxNumber = randomNumber2;
@@ -36,4 +42,5 @@ public class GCD {
         String question = randomNumber1 + " " + randomNumber2;
         return new String[]{question, Integer.toString(result)};
     }
+
 }
