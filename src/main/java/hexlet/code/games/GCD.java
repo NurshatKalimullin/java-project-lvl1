@@ -29,10 +29,6 @@ public class GCD {
         return result;
     }
 
-    public static void getRules() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
     public static String[] generateQuestionAndResult() {
         String min = "1";
         String max = "100";

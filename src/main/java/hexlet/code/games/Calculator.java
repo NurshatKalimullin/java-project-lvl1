@@ -22,10 +22,6 @@ public class Calculator {
         return num1 + num2;
     }
 
-    public static void getRules() {
-        System.out.println("What is the result of the expression?");
-    }
-
     public static String[] generateQuestionAndResult() {
         String min = "0";
         String max = "100";

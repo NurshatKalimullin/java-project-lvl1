@@ -39,10 +39,6 @@ public class Progression {
         return progression;
     }
 
-    public static void getRules() {
-        System.out.println("What number is missing in the progression?");
-    }
-
     public static String[] generateQuestionAndResult() {
         String digitsInProgression = "7";
         String min = "0";

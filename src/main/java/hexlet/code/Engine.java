@@ -13,7 +13,6 @@ public class Engine {
 
     private static final String MAX_TRIES = "3";
 
-
     public static void playGame(String gameOption, String rules) {
         printWelcome();
         askName();

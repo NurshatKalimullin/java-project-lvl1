@@ -10,10 +10,6 @@ public class Even {
         Engine.playGame(game, rules);
     }
 
-    public static void getRules() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
-
     public static String[] generateQuestionAndResult() {
         String min = "0";
         String max = "1000";
