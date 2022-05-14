@@ -5,9 +5,9 @@ import hexlet.code.Engine;
 public class GCD {
 
     public static void gcd() {
-        String game = "GCD";
         String rules = "Find the greatest common divisor of given numbers.";
-        Engine.playGame(game, rules);
+        String[] questionsAndResults = generateQuestionAndResult(Engine.getMaxTries());
+        Engine.playGame(rules, questionsAndResults);
     }
 
     private static int findGreatestDivisor(int randomNumber1, int randomNumber2) {
@@ -29,14 +29,21 @@ public class GCD {
         return result;
     }
 
-    public static String[] generateQuestionAndResult() {
-        String min = "1";
-        String max = "100";
-        int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-        int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-        int result = findGreatestDivisor(randomNumber1, randomNumber2);
-        String question = randomNumber1 + " " + randomNumber2;
-        return new String[]{question, Integer.toString(result)};
+    public static String[] generateQuestionAndResult(int tries) {
+        String numberOfQuestionsAndResultsInOneTry = "2";
+        int totalNumberOfQuestionsAndResults = tries * Integer.parseInt(numberOfQuestionsAndResultsInOneTry);
+        String[] questionsAndResults = new String[totalNumberOfQuestionsAndResults];
+        for (int i = 0; i < totalNumberOfQuestionsAndResults; i = i + 2) {
+            String min = "1";
+            String max = "100";
+            int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int result = findGreatestDivisor(randomNumber1, randomNumber2);
+            String question = randomNumber1 + " " + randomNumber2;
+            questionsAndResults[i] = question;
+            questionsAndResults[i + 1] = Integer.toString(result);
+        }
+        return questionsAndResults;
     }
 
 }

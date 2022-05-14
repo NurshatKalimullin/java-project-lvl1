@@ -5,9 +5,9 @@ import hexlet.code.Engine;
 public class Progression {
 
     public static void progression() {
-        String game = "Progression";
         String rules = "What number is missing in the progression?";
-        Engine.playGame(game, rules);
+        String[] questionsAndResults = generateQuestionAndResult(Engine.getMaxTries());
+        Engine.playGame(rules, questionsAndResults);
     }
 
     private static String getProgressionForPrint(String[] progression, int numberForMasking) {
@@ -39,15 +39,22 @@ public class Progression {
         return progression;
     }
 
-    public static String[] generateQuestionAndResult() {
-        String digitsInProgression = "7";
-        String min = "0";
-        int[] progression = generateProgression(Integer.parseInt(digitsInProgression));
-        int numberForMasking = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(digitsInProgression));
-        String[] stringProgression = convertIntArrayToStringArray(progression);
-        String maskedDigit = stringProgression[numberForMasking];
-        String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
-        return new String[]{progressionForPrint, maskedDigit};
+    public static String[] generateQuestionAndResult(int tries) {
+        String numberOfQuestionsAndResultsInOneTry = "2";
+        int totalNumberOfQuestionsAndResults = tries * Integer.parseInt(numberOfQuestionsAndResultsInOneTry);
+        String[] questionsAndResults = new String[totalNumberOfQuestionsAndResults];
+        for (int i = 0; i < totalNumberOfQuestionsAndResults; i = i + 2) {
+            String digitsInProgression = "7";
+            String min = "0";
+            int[] progression = generateProgression(Integer.parseInt(digitsInProgression));
+            int numberForMasking = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(digitsInProgression));
+            String[] stringProgression = convertIntArrayToStringArray(progression);
+            String maskedDigit = stringProgression[numberForMasking];
+            String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);
+            questionsAndResults[i] = progressionForPrint;
+            questionsAndResults[i + 1] = maskedDigit;
+        }
+        return questionsAndResults;
     }
 
 }

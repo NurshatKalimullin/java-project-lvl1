@@ -1,29 +1,23 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
 
-    private static final String MAX_TRIES = "3";
+    public static final String MAX_TRIES = "3";
 
-    public static void playGame(String game, String rules) {
+    public static void playGame(String rules, String[] questionAndResult) {
         printWelcome();
         askName();
         String gamerName = Engine.getName();
         printGreeting(gamerName);
         printRules(rules);
         int winsCounter = 0;
+        int extractionNumberForQuestionsAnsResults = 0;
         for (int i = 0; i < Integer.parseInt(MAX_TRIES); i++) {
-            String[] questionAndResult = getQuestionAndResult(game);
-            String question = questionAndResult[0];
-            String result = questionAndResult[1];
+            String question = questionAndResult[extractionNumberForQuestionsAnsResults];
+            String result = questionAndResult[extractionNumberForQuestionsAnsResults + 1];
             printTask(question);
             String answer = Engine.getAnswer();
             printAnswer(answer);
@@ -33,6 +27,7 @@ public class Engine {
             }
             winsCounter = winsCounter + 1;
             printSuccessLines(winsCounter, gamerName);
+            extractionNumberForQuestionsAnsResults = extractionNumberForQuestionsAnsResults + 2;
         }
     }
 
@@ -91,32 +86,11 @@ public class Engine {
         System.out.println("Question: " + task);
     }
 
-    private static String[] getQuestionAndResult(String game) {
-        String[] questionAndResult = {""};
-        switch (game) {
-            case "Even":
-                questionAndResult = Even.generateQuestionAndResult();
-                break;
-            case "Calculator":
-                questionAndResult = Calculator.generateQuestionAndResult();
-                break;
-            case "GCD":
-                questionAndResult = GCD.generateQuestionAndResult();
-                break;
-            case "Progression":
-                questionAndResult = Progression.generateQuestionAndResult();
-                break;
-            case "Prime":
-                questionAndResult = Prime.generateQuestionAndResult();
-                break;
-            default:
-                throw new Error(String.format("Unknown order state: %s!", game));
-        }
-        return questionAndResult;
-    }
-
-
     private static void printRules(String rules) {
         System.out.println(rules);
+    }
+
+    public static int getMaxTries() {
+        return Integer.parseInt(MAX_TRIES);
     }
 }

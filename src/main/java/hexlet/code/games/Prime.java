@@ -5,9 +5,9 @@ import hexlet.code.Engine;
 public class Prime {
 
     public static void prime() {
-        String game = "Prime";
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        Engine.playGame(game, rules);
+        String[] questionsAndResults = generateQuestionAndResult(Engine.getMaxTries());
+        Engine.playGame(rules, questionsAndResults);
     }
 
     private static boolean isPrime(int number) {
@@ -22,15 +22,22 @@ public class Prime {
         return true;
     }
 
-    public static String[] generateQuestionAndResult() {
-        String min = "0";
-        String max = "100";
-        int randomNumber = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-        String result = "yes";
-        if (!isPrime(randomNumber)) {
-            result = "no";
+    public static String[] generateQuestionAndResult(int tries) {
+        String numberOfQuestionsAndResultsInOneTry = "2";
+        int totalNumberOfQuestionsAndResults = tries * Integer.parseInt(numberOfQuestionsAndResultsInOneTry);
+        String[] questionsAndResults = new String[totalNumberOfQuestionsAndResults];
+        for (int i = 0; i < totalNumberOfQuestionsAndResults; i = i + 2) {
+            String min = "0";
+            String max = "100";
+            int randomNumber = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            String result = "yes";
+            if (!isPrime(randomNumber)) {
+                result = "no";
+            }
+            questionsAndResults[i] = Integer.toString(randomNumber);
+            questionsAndResults[i + 1] = result;
         }
-        return new String[]{Integer.toString(randomNumber), result};
+        return questionsAndResults;
     }
 
 }
