@@ -1,13 +1,15 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
 
-    public static void prime() {
-        String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questionsAndResults = generateQuestionAndResult(Engine.getMaxTries());
-        Engine.playGame(rules, questionsAndResults);
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    public static void play() {
+        String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
+        Engine.playGame(RULES, questionsAndResults);
     }
 
     private static boolean isPrime(int number) {
@@ -22,20 +24,18 @@ public class Prime {
         return true;
     }
 
-    public static String[] generateQuestionAndResult(int tries) {
-        String numberOfQuestionsAndResultsInOneTry = "2";
-        int totalNumberOfQuestionsAndResults = tries * Integer.parseInt(numberOfQuestionsAndResultsInOneTry);
-        String[] questionsAndResults = new String[totalNumberOfQuestionsAndResults];
-        for (int i = 0; i < totalNumberOfQuestionsAndResults; i = i + 2) {
+    public static String[][] generateQuestionAndResult(int tries) {
+        String[][] questionsAndResults = new String[2][tries];
+        for (int i = 0; i < tries; i = i + 2) {
             String min = "0";
             String max = "100";
-            int randomNumber = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             String result = "yes";
             if (!isPrime(randomNumber)) {
                 result = "no";
             }
-            questionsAndResults[i] = Integer.toString(randomNumber);
-            questionsAndResults[i + 1] = result;
+            questionsAndResults[0][i] = Integer.toString(randomNumber);
+            questionsAndResults[1][i] = result;
         }
         return questionsAndResults;
     }

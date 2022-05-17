@@ -1,59 +1,47 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calculator {
 
-    public static void calc() {
-        String rules = "What is the result of the expression?";
-        String[] questionsAndResults = generateQuestionAndResult(Engine.getMaxTries());
-        Engine.playGame(rules, questionsAndResults);
+    private static final String RULES = "What is the result of the expression?";
+
+    public static void play() {
+        String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
+        Engine.playGame(RULES, questionsAndResults);
     }
 
-    private static int multiply(int num1, int num2) {
-        return num1 * num2;
-    }
-
-    private static int subtract(int num1, int num2) {
-        return num1 - num2;
-    }
-
-    private static int add(int num1, int num2) {
-        return num1 + num2;
-    }
-
-    public static String[] generateQuestionAndResult(int tries) {
-        String numberOfQuestionsAndResultsInOneTry = "2";
-        int totalNumberOfQuestionsAndResults = tries * Integer.parseInt(numberOfQuestionsAndResultsInOneTry);
-        String[] questionsAndResults = new String[totalNumberOfQuestionsAndResults];
-        for (int i = 0; i < totalNumberOfQuestionsAndResults; i = i + 2) {
+    public static String[][] generateQuestionAndResult(int tries) {
+        String[][] questionsAndResults = new String[2][tries];
+        for (int i = 0; i < tries; i++) {
             String min = "0";
             String max = "100";
-            int randomNumber1 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            int randomNumber2 = Engine.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber1 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            int randomNumber2 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
             max = "4";
-            String randomGameOption = Integer.toString(Engine.returnNumber(Integer.parseInt(min),
+            String randomGameOption = Integer.toString(Utils.returnNumber(Integer.parseInt(min),
                     Integer.parseInt(max)));
             String question = "";
             int result = 0;
             switch (randomGameOption) {
                 case "1":
                     question = randomNumber1 + " * " + randomNumber2;
-                    result = multiply(randomNumber1, randomNumber2);
+                    result =  randomNumber1 * randomNumber2;
                     break;
                 case "2":
                     question = randomNumber1 + " - " + randomNumber2;
-                    result = subtract(randomNumber1, randomNumber2);
+                    result = randomNumber1 - randomNumber2;
                     break;
                 case "3":
                     question = randomNumber1 + " + " + randomNumber2;
-                    result = add(randomNumber1, randomNumber2);
+                    result = randomNumber1 + randomNumber2;
                     break;
                 default:
                     throw new Error(String.format("Unknown order state: %s!", randomGameOption));
             }
-            questionsAndResults[i] = question;
-            questionsAndResults[i + 1] = Integer.toString(result);
+            questionsAndResults[0][i] = question;
+            questionsAndResults[1][i + 1] = Integer.toString(result);
         }
         return questionsAndResults;
     }

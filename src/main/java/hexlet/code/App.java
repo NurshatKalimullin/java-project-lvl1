@@ -23,23 +23,25 @@ public class App {
         String gameOption = sc.nextLine();
         System.out.println("Your choice: " + gameOption);
         switch (gameOption) {
+            case "0":
+                return;
             case "1":
                 Cli.cli();
                 break;
             case "2":
-                Even.even();
+                Even.play();
                 break;
             case "3":
-                Calculator.calc();
+                Calculator.play();
                 break;
             case "4":
-                GCD.gcd();
+                GCD.play();
                 break;
             case "5":
-                Progression.progression();
+                Progression.play();
                 break;
             case "6":
-                Prime.prime();
+                Prime.play();
                 break;
             default:
                 System.out.println("Sorry! Wrong answer. Please, try again.");

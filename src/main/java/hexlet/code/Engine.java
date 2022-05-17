@@ -5,29 +5,29 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static final String MAX_TRIES = "3";
+    public static final int MAX_TRIES = 3;
 
-    public static void playGame(String rules, String[] questionAndResult) {
-        printWelcome();
-        askName();
-        String gamerName = Engine.getName();
-        printGreeting(gamerName);
-        printRules(rules);
+    public static void playGame(String rules, String[][] questionAndResult) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        Scanner sc = new Scanner(System.in);
+        String gamerName = sc.next();
+        System.out.println(String.format("Hello, %s!", gamerName));
+        System.out.println(rules);
         int winsCounter = 0;
-        int extractionNumberForQuestionsAnsResults = 0;
-        for (int i = 0; i < Integer.parseInt(MAX_TRIES); i++) {
-            String question = questionAndResult[extractionNumberForQuestionsAnsResults];
-            String result = questionAndResult[extractionNumberForQuestionsAnsResults + 1];
-            printTask(question);
-            String answer = Engine.getAnswer();
-            printAnswer(answer);
+        for (int i = 0; i < MAX_TRIES; i++) {
+            String question = questionAndResult[0][i];
+            String result = questionAndResult[1][i];
+            System.out.println("Question: " + question);
+            String answer = sc.next();
+            System.out.println("Your answer: " + answer);
             if (!answer.equals(result)) {
                 printGameOverLine(answer, result, gamerName);
-                break;
+                sc.close();
+                return;
             }
             winsCounter = winsCounter + 1;
             printSuccessLines(winsCounter, gamerName);
-            extractionNumberForQuestionsAnsResults = extractionNumberForQuestionsAnsResults + 2;
         }
     }
 
@@ -45,52 +45,5 @@ public class Engine {
         }
     }
 
-    public static int returnNumber(int min, int max) {
-        Random random = new Random();
-        int randomNumber = random.nextInt(max);
-        while (randomNumber <= min) {
-            randomNumber = random.nextInt(max);
-        }
-        return randomNumber;
-    }
 
-    private static void printWelcome() {
-        System.out.println("Welcome to the Brain Games!");
-    }
-
-    private static void askName() {
-        System.out.println("May I have your name?");
-    }
-
-    private static String getName() {
-        Scanner sc = new Scanner(System.in);
-        String name = sc.next();
-        return name;
-    }
-
-    private static void printGreeting(String gamerName) {
-        System.out.println(String.format("Hello, %s!", gamerName));
-    }
-
-    private static String getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        String answer = sc.next();
-        return answer;
-    }
-
-    private static void printAnswer(String answer) {
-        System.out.println("Your answer: " + answer);
-    }
-
-    private static void printTask(String task) {
-        System.out.println("Question: " + task);
-    }
-
-    private static void printRules(String rules) {
-        System.out.println(rules);
-    }
-
-    public static int getMaxTries() {
-        return Integer.parseInt(MAX_TRIES);
-    }
 }
