@@ -8,7 +8,7 @@ public class Even {
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
 
-    public static void play() {
+    public static void start() {
         String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
         Engine.playGame(RULES, questionsAndResults);
     }

@@ -7,7 +7,7 @@ public class Calculator {
 
     private static final String RULES = "What is the result of the expression?";
 
-    public static void play() {
+    public static void start() {
         String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
         Engine.playGame(RULES, questionsAndResults);
     }

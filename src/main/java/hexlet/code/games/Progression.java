@@ -9,7 +9,7 @@ public class Progression {
     private static final int DIGITS_IN_PROGRESSION = 7;
 
 
-    public static void play() {
+    public static void start() {
         String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
         Engine.playGame(RULES, questionsAndResults);
     }
@@ -31,24 +31,24 @@ public class Progression {
         return stringArray;
     }
 
-    private static int[] generateProgression(int digitsInProgression) {
+    private static int[] generateProgression(int digitsInProgression, int progressionStep, int firstItem) {
         int[] progression = new int[digitsInProgression];
-        final int min = 0;
-        final int max = 10;
-        progression[0] = Utils.returnNumber(min, max);
-        int step = Utils.returnNumber(min, max);
+        progression[0] = firstItem;
         for (int i = 1; i < digitsInProgression; i++) {
-            progression[i] = progression[i - 1] + step;
+            progression[i] = progression[i - 1] + progressionStep;
         }
         return progression;
     }
 
     public static String[][] generateQuestionAndResult(int tries) {
         String[][] questionsAndResults = new String[2][tries];
-        for (int i = 0; i < tries; i = i + 2) {
-            String min = "0";
-            int[] progression = generateProgression(DIGITS_IN_PROGRESSION);
-            int numberForMasking = Utils.returnNumber(Integer.parseInt(min), DIGITS_IN_PROGRESSION);
+        for (int i = 0; i < tries; i++) {
+            final int min = 0;
+            final int max = 10;
+            int progressionStep = Utils.returnNumber(min, max);
+            int firstItem = Utils.returnNumber(min, max);
+            int[] progression = generateProgression(DIGITS_IN_PROGRESSION, progressionStep, firstItem);
+            int numberForMasking = Utils.returnNumber(min, DIGITS_IN_PROGRESSION);
             String[] stringProgression = convertIntArrayToStringArray(progression);
             String maskedDigit = stringProgression[numberForMasking];
             String progressionForPrint = getProgressionForPrint(stringProgression, numberForMasking);

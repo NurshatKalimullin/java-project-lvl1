@@ -7,13 +7,13 @@ public class Prime {
 
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void play() {
+    public static void start() {
         String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
         Engine.playGame(RULES, questionsAndResults);
     }
 
     private static boolean isPrime(int number) {
-        if (number == 1) {
+        if (number <= 1) {
             return false;
         }
         for (int i = number - 1; i > 1; i--) {
@@ -26,7 +26,7 @@ public class Prime {
 
     public static String[][] generateQuestionAndResult(int tries) {
         String[][] questionsAndResults = new String[2][tries];
-        for (int i = 0; i < tries; i = i + 2) {
+        for (int i = 0; i < tries; i++) {
             String min = "0";
             String max = "100";
             int randomNumber = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));

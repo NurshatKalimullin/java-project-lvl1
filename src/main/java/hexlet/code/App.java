@@ -29,19 +29,19 @@ public class App {
                 Cli.cli();
                 break;
             case "2":
-                Even.play();
+                Even.start();
                 break;
             case "3":
-                Calculator.play();
+                Calculator.start();
                 break;
             case "4":
-                GCD.play();
+                GCD.start();
                 break;
             case "5":
-                Progression.play();
+                Progression.start();
                 break;
             case "6":
-                Prime.play();
+                Prime.start();
                 break;
             default:
                 System.out.println("Sorry! Wrong answer. Please, try again.");
