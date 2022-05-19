@@ -41,7 +41,7 @@ public class Calculator {
                     throw new Error(String.format("Unknown order state: %s!", randomGameOption));
             }
             questionsAndResults[0][i] = question;
-            questionsAndResults[1][i + 1] = Integer.toString(result);
+            questionsAndResults[1][i] = Integer.toString(result);
         }
         return questionsAndResults;
     }
