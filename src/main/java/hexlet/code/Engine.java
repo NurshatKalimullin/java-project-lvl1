@@ -21,7 +21,8 @@ public class Engine {
             String answer = sc.next();
             System.out.println("Your answer: " + answer);
             if (!answer.equals(result)) {
-                System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
+                System.out.println(String.format(
+                        "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
                         answer, result, gamerName));
                 sc.close();
                 return;
