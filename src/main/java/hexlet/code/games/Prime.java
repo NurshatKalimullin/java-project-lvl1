@@ -8,7 +8,7 @@ public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void start() {
-        String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
+        String[][] questionsAndResults = generateQuestionAndResult();
         Engine.playGame(RULES, questionsAndResults);
     }
 
@@ -24,9 +24,9 @@ public class Prime {
         return true;
     }
 
-    public static String[][] generateQuestionAndResult(int tries) {
-        String[][] questionsAndResults = new String[2][tries];
-        for (int i = 0; i < tries; i++) {
+    public static String[][] generateQuestionAndResult() {
+        String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
+        for (int i = 0; i < Engine.MAX_TRIES; i++) {
             String min = "0";
             String max = "100";
             int randomNumber = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));

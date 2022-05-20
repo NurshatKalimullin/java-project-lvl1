@@ -21,27 +21,15 @@ public class Engine {
             String answer = sc.next();
             System.out.println("Your answer: " + answer);
             if (!answer.equals(result)) {
-                printGameOverLine(answer, result, gamerName);
+                System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
+                        answer, result, gamerName));
                 sc.close();
                 return;
             }
             winsCounter = winsCounter + 1;
-            printSuccessLines(winsCounter, gamerName);
+            System.out.println("Correct!");
         }
-    }
-
-
-    private static void printGameOverLine(String answer, String result, String gamerName) {
-        System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
-                answer, result, gamerName));
-    }
-
-    private static void printSuccessLines(int winsCounter, String gamerName) {
-        System.out.println("Correct!");
-        String  maxNumberOfWins = "3";
-        if (winsCounter == Integer.parseInt(maxNumberOfWins)) {
-            System.out.println(String.format("Congratulations, %s!", gamerName));
-        }
+        System.out.println(String.format("Congratulations, %s!", gamerName));
     }
 
 

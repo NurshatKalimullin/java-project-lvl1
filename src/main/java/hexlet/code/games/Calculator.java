@@ -6,22 +6,22 @@ import hexlet.code.Utils;
 public class Calculator {
 
     private static final String RULES = "What is the result of the expression?";
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 100;
+    private static final int MAX_GAME_OPTION = 4;
 
     public static void start() {
-        String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
+        String[][] questionsAndResults = generateQuestionAndResult();
         Engine.playGame(RULES, questionsAndResults);
     }
 
-    public static String[][] generateQuestionAndResult(int tries) {
-        String[][] questionsAndResults = new String[2][tries];
-        for (int i = 0; i < tries; i++) {
-            String min = "0";
-            String max = "100";
-            int randomNumber1 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            int randomNumber2 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            max = "4";
-            String randomGameOption = Integer.toString(Utils.returnNumber(Integer.parseInt(min),
-                    Integer.parseInt(max)));
+    public static String[][] generateQuestionAndResult() {
+        String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
+        for (int i = 0; i < Engine.MAX_TRIES; i++) {
+            int randomNumber1 = Utils.returnNumber(MIN_NUMBER, MAX_NUMBER);
+            int randomNumber2 = Utils.returnNumber(MIN_NUMBER, MAX_NUMBER);
+            String randomGameOption = Integer.toString(Utils.returnNumber(MIN_NUMBER,
+                    MAX_GAME_OPTION));
             String question = "";
             int result = 0;
             switch (randomGameOption) {

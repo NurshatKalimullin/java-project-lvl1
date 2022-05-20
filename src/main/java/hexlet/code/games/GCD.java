@@ -8,7 +8,7 @@ public class GCD {
     private static final String RULES = "Find the greatest common divisor of given numbers.";
 
     public static void start() {
-        String[][] questionsAndResults = generateQuestionAndResult(Engine.MAX_TRIES);
+        String[][] questionsAndResults = generateQuestionAndResult();
         Engine.playGame(RULES, questionsAndResults);
     }
 
@@ -31,9 +31,9 @@ public class GCD {
         return result;
     }
 
-    public static String[][] generateQuestionAndResult(int tries) {
-        String[][] questionsAndResults = new String[2][tries];
-        for (int i = 0; i < tries; i++) {
+    public static String[][] generateQuestionAndResult() {
+        String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
+        for (int i = 0; i < Engine.MAX_TRIES; i++) {
             String min = "1";
             String max = "100";
             int randomNumber1 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
