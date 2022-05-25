@@ -34,10 +34,10 @@ public class GCD {
     public static String[][] generateQuestionAndResult() {
         String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
-            String min = "1";
-            String max = "100";
-            int randomNumber1 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            int randomNumber2 = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
+            final int min = 1;
+            final int max = 100;
+            int randomNumber1 = Utils.returnNumber(min, max);
+            int randomNumber2 = Utils.returnNumber(min, max);
             int result = gcd(randomNumber1, randomNumber2);
             String question = randomNumber1 + " " + randomNumber2;
             questionsAndResults[0][i] = question;

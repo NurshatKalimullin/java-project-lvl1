@@ -15,10 +15,10 @@ public class Progression {
     }
 
 
-    private static String[] generateProgression(int progressionStep, int firstItem) {
-        String[] progression = new String[DIGITS_IN_PROGRESSION];
+    private static String[] generateProgression(int progressionStep, int firstItem, int digitsInProgression) {
+        String[] progression = new String[digitsInProgression];
         progression[0] = Integer.toString(firstItem);
-        for (int i = 1; i < DIGITS_IN_PROGRESSION; i++) {
+        for (int i = 1; i < digitsInProgression; i++) {
             progression[i] = Integer.toString(Integer.parseInt(progression[i - 1]) + progressionStep);
         }
         return progression;
@@ -32,7 +32,7 @@ public class Progression {
             int progressionStep = Utils.returnNumber(min, max);
             int firstItem = Utils.returnNumber(min, max);
             int numberForMasking = Utils.returnNumber(min, DIGITS_IN_PROGRESSION);
-            String[] progression = generateProgression(progressionStep, firstItem);
+            String[] progression = generateProgression(progressionStep, firstItem, DIGITS_IN_PROGRESSION);
             String maskedDigit = progression[numberForMasking];
             progression[numberForMasking] = "..";
             String progressionForPrint = String.join(" ", progression);

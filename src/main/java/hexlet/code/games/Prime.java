@@ -27,13 +27,10 @@ public class Prime {
     public static String[][] generateQuestionAndResult() {
         String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
-            String min = "0";
-            String max = "100";
-            int randomNumber = Utils.returnNumber(Integer.parseInt(min), Integer.parseInt(max));
-            String result = "yes";
-            if (!isPrime(randomNumber)) {
-                result = "no";
-            }
+            final int min = 0;
+            final int max = 100;
+            int randomNumber = Utils.returnNumber(min, max);
+            String result = (isPrime(randomNumber)) ? "yes" : "no";
             questionsAndResults[0][i] = Integer.toString(randomNumber);
             questionsAndResults[1][i] = result;
         }
