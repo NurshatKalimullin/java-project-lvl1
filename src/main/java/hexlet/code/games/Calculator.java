@@ -18,9 +18,9 @@ public class Calculator {
     public static String[][] generateQuestionAndResult() {
         String[][] questionsAndResults = new String[2][Engine.MAX_TRIES];
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
-            int randomNumber1 = Utils.returnNumber(MIN_NUMBER, MAX_NUMBER);
-            int randomNumber2 = Utils.returnNumber(MIN_NUMBER, MAX_NUMBER);
-            String randomGameOption = Integer.toString(Utils.returnNumber(MIN_NUMBER,
+            int randomNumber1 = Utils.returnRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            int randomNumber2 = Utils.returnRandomNumber(MIN_NUMBER, MAX_NUMBER);
+            String randomGameOption = Integer.toString(Utils.returnRandomNumber(MIN_NUMBER,
                     MAX_GAME_OPTION));
             String question = "";
             int result = 0;

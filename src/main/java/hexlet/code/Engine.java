@@ -13,7 +13,6 @@ public class Engine {
         String gamerName = sc.next();
         System.out.println(String.format("Hello, %s!", gamerName));
         System.out.println(rules);
-        int winsCounter = 0;
         for (int i = 0; i < MAX_TRIES; i++) {
             String question = questionAndResult[0][i];
             String result = questionAndResult[1][i];
@@ -27,7 +26,6 @@ public class Engine {
                 sc.close();
                 return;
             }
-            winsCounter = winsCounter + 1;
             System.out.println("Correct!");
         }
         System.out.println(String.format("Congratulations, %s!", gamerName));

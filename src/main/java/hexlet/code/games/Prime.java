@@ -29,7 +29,7 @@ public class Prime {
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
             final int min = 0;
             final int max = 100;
-            int randomNumber = Utils.returnNumber(min, max);
+            int randomNumber = Utils.returnRandomNumber(min, max);
             String result = (isPrime(randomNumber)) ? "yes" : "no";
             questionsAndResults[0][i] = Integer.toString(randomNumber);
             questionsAndResults[1][i] = result;

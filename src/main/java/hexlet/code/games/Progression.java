@@ -29,9 +29,9 @@ public class Progression {
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
             final int min = 0;
             final int max = 10;
-            int progressionStep = Utils.returnNumber(min, max);
-            int firstItem = Utils.returnNumber(min, max);
-            int numberForMasking = Utils.returnNumber(min, DIGITS_IN_PROGRESSION);
+            int progressionStep = Utils.returnRandomNumber(min, max);
+            int firstItem = Utils.returnRandomNumber(min, max);
+            int numberForMasking = Utils.returnRandomNumber(min, DIGITS_IN_PROGRESSION);
             String[] progression = generateProgression(progressionStep, firstItem, DIGITS_IN_PROGRESSION);
             String maskedDigit = progression[numberForMasking];
             progression[numberForMasking] = "..";

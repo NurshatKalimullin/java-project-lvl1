@@ -36,8 +36,8 @@ public class GCD {
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
             final int min = 1;
             final int max = 100;
-            int randomNumber1 = Utils.returnNumber(min, max);
-            int randomNumber2 = Utils.returnNumber(min, max);
+            int randomNumber1 = Utils.returnRandomNumber(min, max);
+            int randomNumber2 = Utils.returnRandomNumber(min, max);
             int result = gcd(randomNumber1, randomNumber2);
             String question = randomNumber1 + " " + randomNumber2;
             questionsAndResults[0][i] = question;

@@ -18,7 +18,7 @@ public class Even {
         for (int i = 0; i < Engine.MAX_TRIES; i++) {
             final int min = 0;
             final int max = 1000;
-            String randomNumber = Integer.toString(Utils.returnNumber(min, max));
+            String randomNumber = Integer.toString(Utils.returnRandomNumber(min, max));
             String result = (Integer.parseInt(randomNumber) % 2 == 1) ? "no" : "yes";
             questionsAndResults[0][i] = randomNumber;
             questionsAndResults[1][i] = result;
